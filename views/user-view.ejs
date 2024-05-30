@@ -1,0 +1,89 @@
+<h1>Hello <%= currentUser.NAME %></h1>
+<h2>Bank accounts :</h2>
+<% accounts.forEach(function(account){ %>
+<div style="display: flex; gap: 0.5rem">
+  <span><%= account.NAME %></span>
+  <span><%= account.AMOUNT %>$</span>
+</div>
+<% }); %>
+
+  <h2>Create New Account</h2>
+  <form id="createAccountForm" action="/accounts" method="post">
+    <input type="hidden" name="user_id" value="<%= currentUser.ID %>" />
+    <div>
+      <label for="name">Account Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div>
+      <label for="amount">Initial Amount:</label>
+      <input type="number" id="amount" name="amount" required />
+    </div>
+    <button type="submit">Create Account</button>
+  </form>
+</div>
+
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    color: #333;
+    margin-top: 20px;
+  }
+
+  div {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+  }
+
+  h2 {
+    color: #555;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form div {
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    padding: 10px;
+    color: white;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #4cae4c;
+  }
+</style>

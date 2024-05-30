@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Transactions - SafeBank</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="bank_logo.png" alt="SafeBank Logo" />
+      <h1>EliBank - Transactions</h1>
+    </header>
+    <main>
+      <h2>Recent Transactions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% transactions.forEach(function(transaction){ %>
+            <tr>
+              <td><%= transaction.CREATION_TS %></td>
+              <td><%= transaction.NAME %></td>
+              <td>-<%= transaction.AMOUNT %></td>
+            </tr> 
+            <% }) %>
+        </tbody>
+      </table>
+      <div class="filters">
+        <label for="filter-date">Filter by Date:</label>
+        <input type="date" id="filter-date" />
+        <button>Apply Filter</button>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; SafeBank 2024</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  header img {
+    width: 100px;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+
+  .filters {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .filters label {
+    margin-right: 10px;
+  }
+
+  .filters button {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+</style>
